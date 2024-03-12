@@ -12505,7 +12505,7 @@ button {
   cursor: pointer;
 }
 
-slider {
+.slider {
   --slider-items: 1;
   --item-gap: 12px;
 
@@ -12603,7 +12603,7 @@ slider {
 }
 
 .portfolio-card .card-text {
-  color: var(--dark);
+  color: var(--white);
 }
 
 .portfolio-card:is(:hover, :focus-within) .img-cover {
