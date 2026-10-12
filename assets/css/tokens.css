@@ -1,0 +1,16 @@
+:root {
+  --bg: #0b0d0f;
+  --surface: #111417;
+  --surface-2: #161a1e;
+  --text: #f0f1ec;
+  --muted: #a0a59f;
+  --faint: #686e69;
+  --accent: #78ffbf;
+  --line: rgba(240, 241, 236, .1);
+  --line-strong: rgba(240, 241, 236, .2);
+  --page: 1240px;
+  --section-space: clamp(7rem, 11vw, 11rem);
+  --shadow: 0 28px 80px rgba(0, 0, 0, .28);
+  --font-sans: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
