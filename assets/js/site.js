@@ -58,3 +58,58 @@ if ("IntersectionObserver" in window) {
 }
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+document.querySelectorAll("[data-project-showcase]").forEach((showcase) => {
+  const tabs = [...showcase.querySelectorAll('[role="tab"]')];
+
+  const selectTab = (nextTab, moveFocus = false) => {
+    tabs.forEach((tab) => {
+      const isSelected = tab === nextTab;
+      const panel = showcase.querySelector(`#${tab.getAttribute("aria-controls")}`);
+      tab.setAttribute("aria-selected", String(isSelected));
+      tab.tabIndex = isSelected ? 0 : -1;
+      if (panel) panel.hidden = !isSelected;
+    });
+    if (moveFocus) nextTab.focus();
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectTab(tab));
+    tab.addEventListener("keydown", (event) => {
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+      else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      selectTab(tabs[nextIndex], true);
+    });
+  });
+});
+
+const lightbox = document.querySelector("[data-image-lightbox]");
+const lightboxImage = lightbox?.querySelector("[data-lightbox-image]");
+const lightboxCaption = lightbox?.querySelector("[data-lightbox-caption]");
+const lightboxClose = lightbox?.querySelector("[data-lightbox-close]");
+let lightboxOpener;
+
+document.querySelectorAll("[data-lightbox-src]").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    if (!lightbox || !lightboxImage || !lightboxCaption) return;
+    lightboxOpener = trigger;
+    lightboxImage.src = trigger.dataset.lightboxSrc;
+    lightboxImage.alt = trigger.dataset.lightboxAlt || "";
+    lightboxCaption.textContent = trigger.dataset.lightboxCaption || "";
+    lightbox.showModal();
+  });
+});
+
+lightboxClose?.addEventListener("click", () => lightbox?.close());
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) lightbox.close();
+});
+lightbox?.addEventListener("close", () => {
+  lightboxImage?.removeAttribute("src");
+  lightboxOpener?.focus();
+});

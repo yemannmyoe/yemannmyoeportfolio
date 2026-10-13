@@ -134,42 +134,110 @@
             <p class="case-number">Project 01 <span>Enterprise Business System</span></p>
             <h3>Enterprise ERP + HRM Platform</h3>
             <p class="case-lead">
-              A multi-branch platform centralizing HR, payroll, attendance, leave,
-              accounting-related workflows, and operational reporting.
+              A multi-branch business platform connecting ERP operations, POS, sales,
+              inventory, finance, HR, payroll, attendance, and workforce management.
             </p>
             <ul class="feature-list" aria-label="ERP and HRM capabilities">
+              <li>ERP, POS, sales, inventory, finance, and business reporting workflows</li>
               <li>Payroll, wage, allowance, tax, and overtime workflows</li>
-              <li>Attendance, leave, employee, and role management</li>
-              <li>Multi-company and multi-office operations</li>
-              <li>Reporting and accounting-related workflows</li>
+              <li>Attendance, leave, employee, and workforce management</li>
+              <li>Multi-company, multi-office, and multi-branch operations</li>
             </ul>
             <div class="tag-list" aria-label="Technology stack">
               <span>Laravel</span><span>MySQL</span><span>Filament</span><span>Livewire</span><span>Docker</span>
             </div>
           </div>
-          <div class="case-visual visual-erp" aria-label="Abstract architecture diagram for the enterprise ERP platform">
+          <div class="case-visual visual-product project-showcase" data-project-showcase>
             <div class="visual-label"><span>ERP / HRM</span><span>multi-branch</span></div>
-            <div class="erp-network" aria-hidden="true">
-              <div class="network-core">Core<br /><small>business logic</small></div>
-              <div class="network-node node-a">HR</div>
-              <div class="network-node node-b">Payroll</div>
-              <div class="network-node node-c">Finance</div>
-              <div class="network-node node-d">Reports</div>
-              <span class="connector connector-a"></span>
-              <span class="connector connector-b"></span>
-              <span class="connector connector-c"></span>
-              <span class="connector connector-d"></span>
+            <div class="showcase-tabs" role="tablist" aria-label="Enterprise platform views">
+              <button
+                id="project-01-tab-hrm"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="project-01-panel-hrm"
+                tabindex="0"
+              >HRM / Workforce</button>
+              <button
+                id="project-01-tab-erp"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="project-01-panel-erp"
+                tabindex="-1"
+              >ERP / Operations</button>
+            </div>
+            <div
+              id="project-01-panel-hrm"
+              class="showcase-panel"
+              role="tabpanel"
+              aria-labelledby="project-01-tab-hrm"
+            >
+              <button
+                type="button"
+                class="product-preview product-preview-button"
+                data-lightbox-src="assets/images/erp-hrm-showcase.png"
+                data-lightbox-alt="ERP and HRM attendance management system interface"
+                data-lightbox-caption="HRM / Workforce — attendance and workforce management"
+                aria-label="Open full-size HRM and workforce interface"
+              >
+                <span class="product-browser-bar" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span>hrm.local / workforce</span>
+                  <span>full size ↗</span>
+                </span>
+                <img
+                  src="assets/images/erp-hrm-showcase.png"
+                  width="1672"
+                  height="941"
+                  sizes="(max-width: 1000px) calc(100vw - 4rem), 40vw"
+                  loading="lazy"
+                  decoding="async"
+                  alt="ERP and HRM attendance management system interface"
+                />
+              </button>
+            </div>
+            <div
+              id="project-01-panel-erp"
+              class="showcase-panel"
+              role="tabpanel"
+              aria-labelledby="project-01-tab-erp"
+              hidden
+            >
+              <button
+                type="button"
+                class="product-preview product-preview-button"
+                data-lightbox-src="assets/images/erp-operations-showcase.jpg"
+                data-lightbox-alt="ERP analytics dashboard and point-of-sale operations interface"
+                data-lightbox-caption="ERP / Operations — analytics and point-of-sale workflows"
+                aria-label="Open full-size ERP operations interface"
+              >
+                <span class="product-browser-bar" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span>erp.local / operations</span>
+                  <span>full size ↗</span>
+                </span>
+                <img
+                  src="assets/images/erp-operations-showcase.jpg"
+                  width="1800"
+                  height="1230"
+                  sizes="(max-width: 1000px) calc(100vw - 4rem), 40vw"
+                  loading="lazy"
+                  decoding="async"
+                  alt="ERP analytics dashboard and point-of-sale operations interface"
+                />
+              </button>
             </div>
           </div>
           <details class="case-details">
             <summary>Read case study <span aria-hidden="true">+</span></summary>
             <div class="detail-grid">
-              <div><h4>Overview</h4><p>An enterprise application connecting people operations, payroll, accounting-related processes, and branch workflows in one system.</p></div>
-              <div><h4>Problem</h4><p>Operational data and approvals needed to remain consistent across multiple companies and offices while supporting distinct responsibilities.</p></div>
-              <div><h4>What I built</h4><p>Backend modules for employees, attendance, leave, payroll, wages, allowances, overtime, income tax, reporting, and role-based access.</p></div>
-              <div><h4>Engineering decisions</h4><p>Business rules were organized around auditable workflows, clear authorization boundaries, and multi-branch data ownership.</p></div>
-              <div><h4>Technical challenges</h4><p>Coordinating payroll calculations, attendance inputs, permissions, and accounting-related data without losing operational traceability.</p></div>
-              <div><h4>My role &amp; outcome</h4><p>Led development and deployment, translating business operations into maintainable system workflows used to centralize enterprise operations.</p></div>
+              <div><h4>Overview</h4><p>An enterprise platform connecting ERP operations, POS, sales, inventory, finance, HR, payroll, attendance, and workforce workflows.</p></div>
+              <div><h4>Problem</h4><p>Operational data and approvals needed to stay consistent across companies, offices, and branches while serving distinct business responsibilities.</p></div>
+              <div><h4>What I built</h4><p>Backend modules spanning sales and inventory operations, reporting, employees, attendance, leave, payroll, wages, allowances, overtime, income tax, and role-based access.</p></div>
+              <div><h4>Engineering decisions</h4><p>Business rules were organized around auditable workflows, clear authorization boundaries, transactional integrity, and multi-branch data ownership.</p></div>
+              <div><h4>Technical challenges</h4><p>Coordinating operational, financial, payroll, attendance, and permission data without losing accuracy or traceability across branches.</p></div>
+              <div><h4>My role &amp; outcome</h4><p>Led development and deployment, translating connected business operations into maintainable system workflows for a multi-branch platform.</p></div>
             </div>
           </details>
         </article>
@@ -192,14 +260,23 @@
               <span>Laravel</span><span>REST API</span><span>MySQL</span><span>Filament</span><span>Livewire</span>
             </div>
           </div>
-          <div class="case-visual visual-crm" aria-label="Abstract transaction flow for the CRM and loyalty platform">
+          <div class="case-visual visual-product">
             <div class="visual-label"><span>CRM / Loyalty</span><span>event flow</span></div>
-            <div class="transaction-flow" aria-hidden="true">
-              <div class="flow-row"><span>01</span><strong>customer.authenticated</strong><i>200</i></div>
-              <div class="flow-row"><span>02</span><strong>points.earned</strong><i>+240</i></div>
-              <div class="flow-row"><span>03</span><strong>reward.issued</strong><i>ok</i></div>
-              <div class="flow-row"><span>04</span><strong>audit.recorded</strong><i>✓</i></div>
-            </div>
+            <a class="product-preview" href="assets/images/crm-loyalty-showcase.png" target="_blank" rel="noreferrer" aria-label="Open full-size CRM and loyalty dashboard with customer mobile app interfaces">
+              <span class="product-browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span>crm.local / loyalty</span>
+                <span>full size ↗</span>
+              </span>
+              <img
+                src="assets/images/crm-loyalty-showcase.png"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt="CRM and loyalty dashboard with customer mobile app interfaces"
+              />
+            </a>
           </div>
           <details class="case-details">
             <summary>Read case study <span aria-hidden="true">+</span></summary>
@@ -267,20 +344,27 @@
 
         <div class="timeline">
           <article class="timeline-item timeline-primary reveal">
-            <div class="timeline-date"><span>Dec 2024</span><span>Aug 2026</span></div>
+            <div class="timeline-date"><span>November 2024</span><span>September 2026</span></div>
             <div class="timeline-content">
-              <p class="company">EAXY4U CO., LTD. <span>Bangkok, Thailand</span></p>
-              <h3>Software Engineer</h3>
+              <div class="primary-role-heading">
+                <div>
+                  <h3>Software Engineer</h3>
+                  <p class="company">EAXY4U CO., LTD.</p>
+                </div>
+                <p class="role-location">Bangkok, Thailand</p>
+              </div>
               <div class="experience-grid">
                 <p>
                   Led development and deployment across multi-branch ERP, HR, accounting,
                   CRM, loyalty, and payment systems.
                 </p>
-                <ul>
-                  <li>Built business workflows for payroll, attendance, reconciliation, and role-based access.</li>
-                  <li>Developed REST APIs, CRM/POS integrations, Stripe Connect, and PromptPay QR payments.</li>
-                  <li>Managed Docker Swarm deployments, CI/CD pipelines, logging, monitoring, and production debugging.</li>
-                  <li>Optimized MySQL queries, indexes, and complex database operations.</li>
+                <ul class="responsibility-list">
+                  <li><strong>ERP / HRM</strong><span>Multi-branch operations, payroll, attendance, and role-based access.</span></li>
+                  <li><strong>CRM / Loyalty</strong><span>Customer, membership, rewards, reservations, and POS-connected workflows.</span></li>
+                  <li><strong>APIs &amp; integrations</strong><span>Secure REST APIs and integration boundaries for connected business systems.</span></li>
+                  <li><strong>Payments</strong><span>Stripe Connect, PromptPay QR, webhooks, tracking, and reconciliation.</span></li>
+                  <li><strong>Data &amp; workflows</strong><span>MySQL optimization and automated financial and operational processes.</span></li>
+                  <li><strong>Deployment / CI/CD</strong><span>Docker Swarm, deployment pipelines, logging, monitoring, and production debugging.</span></li>
                 </ul>
               </div>
             </div>
@@ -310,26 +394,37 @@
           <p class="section-index">03 / Engineering focus</p>
           <div><h2 id="engineering-title">Problems I work on</h2><p>Systems thinking across business rules, integration boundaries, data, and delivery.</p></div>
         </div>
-        <div class="engineering-map reveal">
-          <div class="map-core"><span>Business<br />Systems</span></div>
-          <div class="map-column">
-            <p><span>01</span>Multi-branch architecture</p>
-            <p><span>02</span>Payroll automation</p>
-            <p><span>03</span>CRM &amp; loyalty systems</p>
-            <p><span>04</span>REST API design</p>
-          </div>
-          <div class="map-column">
-            <p><span>05</span>Payment integration</p>
-            <p><span>06</span>Authentication &amp; authorization</p>
-            <p><span>07</span>Database design</p>
-            <p><span>08</span>Webhook processing</p>
-          </div>
-          <div class="map-column">
-            <p><span>09</span>Idempotent transactions</p>
-            <p><span>10</span>Docker deployment</p>
-            <p><span>11</span>CI/CD pipelines</p>
-            <p><span>12</span>Production reliability</p>
-          </div>
+        <div class="engineering-grid reveal">
+          <article class="problem-item">
+            <p>01</p>
+            <h3>Multi-Branch Systems</h3>
+            <span>Clear data ownership and operational boundaries across companies and locations.</span>
+          </article>
+          <article class="problem-item">
+            <p>02</p>
+            <h3>Payroll Automation</h3>
+            <span>Business rules connecting attendance, wages, allowances, tax, and approvals.</span>
+          </article>
+          <article class="problem-item">
+            <p>03</p>
+            <h3>REST API Architecture</h3>
+            <span>Secure, scoped integrations with predictable contracts and repeatable requests.</span>
+          </article>
+          <article class="problem-item">
+            <p>04</p>
+            <h3>Payment Workflows</h3>
+            <span>Reliable provider events, explicit states, reconciliation, and branch reporting.</span>
+          </article>
+          <article class="problem-item">
+            <p>05</p>
+            <h3>Data Integrity</h3>
+            <span>Traceable business operations backed by careful schema and transaction design.</span>
+          </article>
+          <article class="problem-item">
+            <p>06</p>
+            <h3>Deployment &amp; CI/CD</h3>
+            <span>Repeatable releases, observability, rollback paths, and production maintenance.</span>
+          </article>
         </div>
       </section>
 
@@ -337,7 +432,7 @@
         <div class="about-grid">
           <div class="section-heading section-heading-stacked reveal">
             <p class="section-index">04 / About</p>
-            <h2 id="about-title">Engineering software around the way businesses actually work.</h2>
+            <h2 id="about-title">I build software around how businesses actually work.</h2>
           </div>
           <div class="about-copy reveal">
             <p>
@@ -366,7 +461,8 @@
         <div class="stack-grid reveal">
           <div><h3>Backend</h3><p>PHP</p><p>Laravel</p><p>CodeIgniter</p></div>
           <div><h3>Frontend</h3><p>JavaScript</p><p>Livewire</p><p>jQuery</p><p>React</p><p>HTML / CSS</p></div>
-          <div><h3>Data &amp; API</h3><p>MySQL</p><p>REST APIs</p><p>Webhooks</p><p>Stripe Connect</p></div>
+          <div><h3>Database</h3><p>MySQL</p></div>
+          <div><h3>API &amp; Integration</h3><p>REST APIs</p><p>Webhooks</p><p>Stripe Connect</p></div>
           <div><h3>Infrastructure</h3><p>Docker</p><p>Docker Swarm</p><p>CI/CD</p><p>Nginx / Traefik</p></div>
           <div><h3>Tools</h3><p>Git</p><p>GitHub</p><p>GitLab</p></div>
         </div>
@@ -404,5 +500,13 @@
       <p>Software Engineer <span>Bangkok, Thailand</span></p>
       <a href="#top">Back to top ↑</a>
     </footer>
+
+    <dialog class="image-lightbox" data-image-lightbox aria-labelledby="lightbox-caption">
+      <div class="lightbox-shell">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close full-size image">Close <span aria-hidden="true">×</span></button>
+        <img data-lightbox-image alt="" />
+        <p id="lightbox-caption" data-lightbox-caption></p>
+      </div>
+    </dialog>
   </body>
 </html>

@@ -9,7 +9,7 @@
   --line: rgba(240, 241, 236, .1);
   --line-strong: rgba(240, 241, 236, .2);
   --page: 1240px;
-  --section-space: clamp(7rem, 11vw, 11rem);
+  --section-space: clamp(5.75rem, 8.5vw, 8.5rem);
   --shadow: 0 28px 80px rgba(0, 0, 0, .28);
   --font-sans: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
