@@ -1,10 +1,65 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-toggle]");
 const nav = document.querySelector("[data-nav]");
+const themeButton = document.querySelector("[data-theme-toggle]");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const themeQuery = window.matchMedia("(prefers-color-scheme: light)");
+const themeStorageKey = "portfolio-theme";
 const navLinks = [...document.querySelectorAll('.primary-nav a[href^="#"]')];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+
+const getSavedTheme = () => {
+  try {
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    return savedTheme === "light" || savedTheme === "dark" ? savedTheme : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const applyTheme = (theme, persist = false) => {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  const isLight = nextTheme === "light";
+
+  document.documentElement.dataset.theme = nextTheme;
+  document.documentElement.style.colorScheme = nextTheme;
+  themeColorMeta?.setAttribute("content", isLight ? "#f4f5f2" : "#0b0d0f");
+  themeButton?.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} mode`);
+  themeButton?.setAttribute("aria-pressed", String(isLight));
+  themeButton?.setAttribute("title", `Switch to ${isLight ? "dark" : "light"} mode`);
+
+  if (persist) {
+    try {
+      localStorage.setItem(themeStorageKey, nextTheme);
+    } catch (error) {
+      // The selected theme still applies for this page when storage is unavailable.
+    }
+  }
+};
+
+applyTheme(document.documentElement.dataset.theme || (themeQuery.matches ? "light" : "dark"));
+
+themeButton?.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  applyTheme(nextTheme, true);
+});
+
+const syncSystemTheme = (event) => {
+  if (!getSavedTheme()) applyTheme(event.matches ? "light" : "dark");
+};
+
+if (typeof themeQuery.addEventListener === "function") {
+  themeQuery.addEventListener("change", syncSystemTheme);
+} else {
+  themeQuery.addListener(syncSystemTheme);
+}
+
+window.addEventListener("storage", (event) => {
+  if (event.key !== themeStorageKey) return;
+  applyTheme(event.newValue || (themeQuery.matches ? "light" : "dark"));
+});
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);

@@ -27,6 +27,29 @@
       content="Backend-focused Software Engineer building reliable business systems."
     />
     <meta name="twitter:image" content="https://yemannmyoeportfolio.vercel.app/assets/social-card.png" />
+    <script>
+      (() => {
+        const darkColor = "#0b0d0f";
+        const lightColor = "#f4f5f2";
+        let theme = "dark";
+
+        try {
+          const savedTheme = localStorage.getItem("portfolio-theme");
+          theme = savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        } catch (error) {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+          "content",
+          theme === "light" ? lightColor : darkColor
+        );
+      })();
+    </script>
     <link rel="stylesheet" href="assets/css/site.css" />
     <script type="application/ld+json">
       {
@@ -71,6 +94,15 @@
           <a href="#about">About</a>
           <a href="#stack">Stack</a>
           <a href="#contact">Contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 15.4A8.5 8.5 0 0 1 8.6 3.5 8.5 8.5 0 1 0 20.5 15.4Z"></path>
+            </svg>
+          </button>
           <a class="nav-resume" href="assets/Ye_Mann_Myoe_Resume.pdf" download>Resume</a>
         </nav>
       </div>
